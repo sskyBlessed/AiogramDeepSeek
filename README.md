@@ -92,7 +92,6 @@
 ## ⚙️ Переменные окружения
 
 - `DEEPSEEK_API_KEY` — ваш API-ключ DeepSeek
-- `FinanceBot` — ID ассистента DeepSeek
 
 ---
 
