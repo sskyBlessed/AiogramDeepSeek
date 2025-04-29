@@ -6,6 +6,8 @@ from app.config import get_api_key
 router = Router()
 
 # Обработчик команды /start в личных сообщениях
+
+
 @router.message(Command("start"))
 async def start_command(message: types.Message):
     """
@@ -20,6 +22,8 @@ async def start_command(message: types.Message):
     await message.answer(welcome_text)
 
 # Обработчик команды /help в личных сообщениях
+
+
 @router.message(Command("help"))
 async def help_command(message: types.Message):
     """
@@ -38,6 +42,8 @@ async def help_command(message: types.Message):
     await message.answer(help_text)
 
 # Обработчик всех остальных сообщений в личных сообщениях
+
+
 @router.message(F.chat.type == "private")
 async def answer_private(message: types.Message):
     """
@@ -52,7 +58,7 @@ async def answer_private(message: types.Message):
             provider_id="ProAI_Test_20241219",
             assistant_name="FinanceBot",
             user_message=question,
-            prompt="Отвечай кратко и по существу на финансовые вопросы."
+            prompt="Отвечай кратко и по существу на финансовые вопросы. И отвечай без выделения текста."
         )
         print(response)  # Для отладки
         # Обрабатываем ответ
@@ -62,4 +68,4 @@ async def answer_private(message: types.Message):
             await message.answer(response["message"])
     except Exception as e:
         print(f"Error in private handler: {str(e)}")
-        await message.answer("Извините, произошла ошибка при обработке вашего запроса.") 
+        await message.answer("Извините, произошла ошибка при обработке вашего запроса.")
